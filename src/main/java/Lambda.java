@@ -1,5 +1,6 @@
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.util.Random;
 import java.util.concurrent.Callable;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -28,7 +29,19 @@ public class Lambda {
      * @return A {@link Runnable} created with a lamda expression.
      */
     public static Runnable createRunnable() {
-        throw new NotImplementedException();
+        System.out.println("Runnable test");
+
+        //anonymous runable
+        Runnable r1 = new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("runnable 1");
+            }
+        };
+        //lambda
+        Runnable r2 = () -> {System.out.println("runnable 2");};
+
+        return r2;
     }
 
     /**
@@ -40,9 +53,10 @@ public class Lambda {
      * @param producer A producer which can generate numbers.
      * @return A number generated from the producer.
      */
-    public static int produce(Callable<Integer> producer) {
-        throw new NotImplementedException();
-    }
+    //public static int produce(Callable<Integer> producer) {
+    //    Callable<Integer> callableObj = () -> {return new Random().nextInt(6);};
+    //    return callableObj;
+    //}
 
     /**
      * <h2>Task 3</h2>
